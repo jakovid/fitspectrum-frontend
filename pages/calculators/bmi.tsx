@@ -1,10 +1,17 @@
 import { useState } from "react"
 export default function bmi() {
-    type SexType = 'male' | 'female';
     type MeasurementSystem = 'imperial' | 'metric';
+    type BMITypes = "underweight" | "normal" | "overweight" | "obese"
 
-    let [sex, setSex] = useState<SexType>("female");
-    let [measurementType, setMeasurementType] = useState<MeasurementSystem>("imperial")
+    let [measurementType, setMeasurementType] = useState<MeasurementSystem>("imperial");
+    let [bmiType, setBmiType] = useState<BMITypes | null>(null);
+    let [bmiCalculation, setBmiCalculation] = useState<number | null>(null);
+    let [heightMetric, setHeightMetric] = useState<number | null>(null);
+    let [weightMetric, setWeightMetric] = useState<number | null>(null);
+
+    function calculateBMI(){
+        console.log("calcin' bro")
+    }
 
     return (
       <div className="flex h-screen items-center justify-center bg-[#00BCD4]">
@@ -17,9 +24,9 @@ export default function bmi() {
                 <span onClick={() => setMeasurementType("imperial")} className={`w-20 flex justify-center rounded-s-full rounded-e-full border-white border-2 ${measurementType == "imperial" ? "bg-[#00BCD4] text-white" : "bg-white text-[#263238]"}`}>Imperial</span>
             </div>
 
-            <form className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 justify-center items-center">
 
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 gap-2 w-full">
                     <label className="col-span-1">weight:</label>
                     <div className="col-span-2 flex gap-2">
                         <input type="number" className="text-black w-12"></input>
@@ -27,7 +34,7 @@ export default function bmi() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 gap-2 w-full">
                     <label className="col-span-1">height:</label>
                     <div className="col-span-2 flex gap-2">
                         <input type="number" className="text-black w-12"></input>
@@ -36,7 +43,20 @@ export default function bmi() {
                         <div>{measurementType == "imperial" ? "in." : ""}</div>
                     </div>
                 </div>
-            </form>
+
+                <span onClick={() => {calculateBMI()}} className="bg-gray-400 px-4 py-1 w-full text-center rounded-s-full rounded-e-full hover:bg-white hover:text-black">Calculate BMI</span>
+            </div>
+
+            <div className="flex flex-col">
+                <div className="flex gap-1">
+                    <div>Your BMI is</div>
+                    <div className="font-bold">5</div>
+                </div>
+                <div className="flex gap-1">
+                    <div>You are considered</div>
+                    <div className="font-bold">obese</div>
+                </div>
+            </div>
         </div>
       </div>
     )
