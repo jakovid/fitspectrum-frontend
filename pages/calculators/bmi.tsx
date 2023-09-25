@@ -19,26 +19,22 @@ export default function bmi() {
 
             <form className="flex flex-col gap-2">
 
-                <div className="flex w-full justify-end gap-2">
-                    <label>sex: </label>
-                    <select id='user_sex' name="user_sex" className="text-[#263238] w-24" required>
-                        <option value="female">female</option>
-                        <option value="male">male</option>
-                    </select>
+                <div className="grid grid-cols-3 gap-2">
+                    <label className="col-span-1">weight:</label>
+                    <div className="col-span-2 flex gap-2">
+                        <input type="number" className="text-black w-12"></input>
+                        <div>{measurementType == "imperial" ? "lbs" : "kg"}</div>
+                    </div>
                 </div>
 
-                <div className="flex gap-2">
-                    <label>weight:</label>
-                    <input type="number" className="text-black w-24"></input>
-                    <div>{measurementType == "imperial" ? "lbs" : "kg"}</div>
-                </div>
-
-                <div className="flex gap-2">
-                    <label>height:</label>
-                    <input type="number" className="text-black w-12"></input>
-                    <div>{measurementType == "imperial" ? "ft." : "cm"}</div>
-                    <input type="number" className={`${measurementType == "imperial" ? "w-12" : "hidden"}`}></input>
-                    <div>{measurementType == "imperial" ? "in." : ""}</div>
+                <div className="grid grid-cols-3 gap-2">
+                    <label className="col-span-1">height:</label>
+                    <div className="col-span-2 flex gap-2">
+                        <input type="number" className="text-black w-12"></input>
+                        <div>{measurementType == "imperial" ? "ft." : "cm"}</div>
+                        <input type="number" className={`text-black ${measurementType == "imperial" ? "w-12" : "hidden"}`}></input>
+                        <div>{measurementType == "imperial" ? "in." : ""}</div>
+                    </div>
                 </div>
             </form>
         </div>
