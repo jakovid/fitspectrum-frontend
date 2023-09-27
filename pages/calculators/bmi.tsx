@@ -3,11 +3,11 @@ export default function bmi() {
     type MeasurementSystem = 'imperial' | 'metric';
     type BMITypes = "underweight" | "normal" | "overweight" | "obese"
 
-    let [measurementType, setMeasurementType] = useState<MeasurementSystem>("imperial");
+    let [measurementType, setMeasurementType] = useState<MeasurementSystem>("metric");
     let [bmiType, setBmiType] = useState<BMITypes | null>(null);
-    let [bmiCalculation, setBmiCalculation] = useState<number | null>(null);
-    let [heightMetric, setHeightMetric] = useState<number | null>(null);
-    let [weightMetric, setWeightMetric] = useState<number | null>(null);
+    let [bmiCalculation, setBmiCalculation] = useState<number | null>(0);
+    let [heightMetric, setHeightMetric] = useState<number>(0);
+    let [weightMetric, setWeightMetric] = useState<number>(0);
 
     function calculateBMI(){
         console.log("calcin' bro")
@@ -29,18 +29,16 @@ export default function bmi() {
                 <div className="grid grid-cols-3 gap-2 w-full">
                     <label className="col-span-1">weight:</label>
                     <div className="col-span-2 flex gap-2">
-                        <input type="number" className="text-black w-12"></input>
-                        <div>{measurementType == "imperial" ? "lbs" : "kg"}</div>
+                        <input value={weightMetric} type="number" className="text-black w-12 pl-1" />
+                        <div>kg</div>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-2 w-full">
                     <label className="col-span-1">height:</label>
                     <div className="col-span-2 flex gap-2">
-                        <input type="number" className="text-black w-12"></input>
+                        <input value={heightMetric} type="number" className="text-black w-12 pl-1"></input>
                         <div>{measurementType == "imperial" ? "ft." : "cm"}</div>
-                        <input type="number" className={`text-black ${measurementType == "imperial" ? "w-12" : "hidden"}`}></input>
-                        <div>{measurementType == "imperial" ? "in." : ""}</div>
                     </div>
                 </div>
 
