@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BuildMetricInput from "./bmi-metric-input";
+import BuildImperialInput from "./bmi-imperial-input";
 
 
 export default function BuildBmiCalculator(){
@@ -22,6 +23,7 @@ return (
             <span onClick={() => setMeasurementType("imperial")} className={`w-20 flex justify-center rounded-s-full rounded-e-full border-white border-2 ${measurementType == "imperial" ? "bg-[#00BCD4] text-white" : "bg-white text-[#263238]"}`}>Imperial</span>
         </div>
         {measurementType == "metric" && <BuildMetricInput />}
+        {measurementType == "imperial" && <BuildImperialInput />}
 
     </div>
   </div>
