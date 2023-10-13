@@ -43,14 +43,14 @@ export default function BuildImperialInput(){
         <div className="grid grid-cols-3 gap-2 w-full">
             <label className="col-span-1">height:</label>
             <div className="col-span-2 flex gap-2">
-                <input onChange={handleFeetChange} value={feet} type="number" className="text-black w-6 pl-1"></input>
+                <input onChange={handleFeetChange} value={feet} type="number" className="text-black w-8 pl-1"></input>
                 <div>ft</div>
-                <input onChange={handleInchesChange} value={inches} type="number" className="text-black w-6 pl-1"></input>
+                <input onChange={handleInchesChange} value={inches} type="number" className="text-black w-8 pl-1"></input>
                 <div>in</div>
             </div>
         </div>
 
-        <span onClick={handleFindBmi} className="bg-gray-400 px-4 py-1 w-full text-center rounded-s-full rounded-e-full hover:bg-white hover:text-black">Calculate BMI</span>
+        <span onClick={handleFindBmi} className="bg-gray-400 px-4 py-1 w-full cursor-pointer text-center rounded-s-full rounded-e-full hover:bg-white hover:text-black">Calculate BMI</span>
         {bmi > 0 && <BmiResultsGenerator score={bmi} /> }
     </div>
 
